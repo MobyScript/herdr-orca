@@ -1,5 +1,7 @@
 # Herdr Orca Sync
 
+> **Mirror.** The original repo, `rudironsoni/herdr-orca`, was deleted. This copy is v0.3.0 (commit `6a88ee7`), taken from a local herdr plugin install. It is unchanged except for this note and the install command below. Copyright © 2026 Rudimar Ronsoni, MIT (see [LICENSE](LICENSE)).
+
 Show Herdr terminals inside stock Orca. Herdr owns the PTY. Orca owns the window.
 
 Plugin id: `rudironsoni.herdr-orca-sync`.
@@ -14,7 +16,7 @@ Plugin id: `rudironsoni.herdr-orca-sync`.
 ## Install
 
 ```bash
-herdr plugin install rudironsoni/herdr-orca
+herdr plugin install MobyScript/herdr-orca
 herdr plugin enable rudironsoni.herdr-orca-sync
 herdr-orca doctor
 herdr-orca hooks install
