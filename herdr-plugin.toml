@@ -1,0 +1,56 @@
+id = "rudironsoni.herdr-orca-sync"
+name = "Herdr Orca Sync"
+version = "0.3.0"
+description = "Attach stock Orca tabs to Herdr-owned terminals."
+min_herdr_version = "0.7.5"
+platforms = ["macos", "linux", "windows"]
+
+[[build]]
+command = ["pnpm", "install"]
+
+[[build]]
+command = ["pnpm", "build"]
+
+[[build]]
+command = ["node", "dist/herdr-orca.mjs", "daemon", "ensure"]
+
+[[startup]]
+command = ["node", "dist/herdr-orca.mjs", "daemon", "ensure"]
+
+[[actions]]
+id = "status"
+title = "Herdr Orca Sync status"
+command = ["node", "dist/herdr-orca.mjs", "status", "--popup"]
+
+[[actions]]
+id = "sync-now"
+title = "Sync now"
+command = ["node", "dist/herdr-orca.mjs", "sync"]
+
+[[actions]]
+id = "open-in-orca"
+title = "Open in Orca"
+contexts = ["pane", "workspace"]
+command = ["node", "dist/herdr-orca.mjs", "open-in-orca"]
+
+[[actions]]
+id = "repair"
+title = "Repair mapping"
+contexts = ["pane", "workspace"]
+command = ["node", "dist/herdr-orca.mjs", "repair", "--current"]
+
+[[actions]]
+id = "doctor"
+title = "Doctor"
+command = ["node", "dist/herdr-orca.mjs", "doctor"]
+
+[[actions]]
+id = "reset"
+title = "Reset local service"
+command = ["node", "dist/herdr-orca.mjs", "daemon", "uninstall"]
+
+[[panes]]
+id = "status"
+title = "Herdr Orca Sync"
+placement = "popup"
+command = ["node", "dist/herdr-orca.mjs", "status", "--popup"]
